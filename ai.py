@@ -31,7 +31,7 @@ def chose_file():
         result_l["text"]=result.display_name
         break
 def get_prediction(content, project_id, model_id):
-  prediction_client = PredictionServiceClient.from_service_account_file("AI.json")
+  prediction_client = PredictionServiceClient.from_service_account_file()#your json file name
   name = 'projects/{}/locations/us-central1/models/{}'.format(project_id, model_id)
   payload = {'image': {'image_bytes': content }}
   params = {}
@@ -41,6 +41,6 @@ window=tk.Tk()
 window.title("AI")
 result_l=tk.Label(window)
 summit_b=tk.Button(window,text="choose and summit",command=chose_file).pack()
-project_id = "aivic-253700"
-model_id = "ICN1725724822968560826"
+project_id = #your project id
+model_id =#your model id
 window.mainloop()
