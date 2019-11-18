@@ -5,3 +5,11 @@ AI_KEY.json
 ai_web0.py
 wsgiweb0.py
 *.jpg
+*.mp3
+*.mp4
+*.png
+*.dng
+*.txt
+*.py
+*.js
+*.kt

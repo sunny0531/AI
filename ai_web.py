@@ -5,8 +5,6 @@ from google.cloud.automl_v1beta1 import PredictionServiceClient
 from PIL import Image
 import os
 from flask import Flask, redirect, url_for, request ,render_template
-project_id = ""
-model_id = ""
 def get_prediction(content, project_id, model_id):
   prediction_client = PredictionServiceClient.from_service_account_file("AI_KEY.json")
   name = 'projects/{}/locations/us-central1/models/{}'.format(project_id, model_id)
@@ -14,6 +12,8 @@ def get_prediction(content, project_id, model_id):
   params = {}
   request = prediction_client.predict(name, payload, params)
   return request
+project_id = ""
+model_id = ""
 app = Flask(__name__)
 @app.route('/',methods = ['POST', 'GET'])
 def index():
@@ -30,8 +30,8 @@ def summit():
     try:
         response=get_prediction(content, project_id,  model_id)
         for result in response.payload:
-            re=result.display_name.replace("Many_sugar","High sugar")
+            re=result.display_name
             break
     except:
         re="You can only upload photo."
-    return render_template("summit_web.html",res=re)
+    return render_template("summit_web.html",res=re.replace("Many_sugar","High sugar"))
