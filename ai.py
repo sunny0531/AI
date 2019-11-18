@@ -4,7 +4,7 @@ from tkinter.filedialog import askopenfilename
 from google.cloud import automl_v1beta1
 from google.cloud.automl_v1beta1.proto import service_pb2
 from google.cloud.automl_v1beta1 import PredictionServiceClient
-from PIL import Image, ImageTk
+from PIL import Image
 def chose_file():
     result_l.pack()
     result_l["text"]="loading image"
