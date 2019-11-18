@@ -1,10 +1,11 @@
 import sys
+import  tkinter as tk
 import ast
 from tkinter.filedialog import askopenfilename
 from google.cloud import automl_v1beta1
 from google.cloud.automl_v1beta1.proto import service_pb2
 from google.cloud.automl_v1beta1 import PredictionServiceClient
-from PIL import Image
+from PIL import Image, ImageTk
 def chose_file():
     result_l.pack()
     result_l["text"]="loading image"
@@ -14,7 +15,6 @@ def chose_file():
         img_r=Image.open(file_path)
         img=img_r.load()
         img_tk=ImageTk.PhotoImage(img_r)
-        #w,h=img.getpixel(("x","y"))
     label = tk.Label(window, image=img_tk)
     label.image=img_tk
     label.pack()
