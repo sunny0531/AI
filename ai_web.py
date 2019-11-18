@@ -2,9 +2,7 @@ import sys
 from google.cloud import automl_v1beta1
 from google.cloud.automl_v1beta1.proto import service_pb2
 from google.cloud.automl_v1beta1 import PredictionServiceClient
-from PIL import Image, ImageTk
-from werkzeug import secure_filename
-import werkzeug
+from PIL import Image
 import os
 from flask import Flask, redirect, url_for, request ,render_template
 project_id = ""
