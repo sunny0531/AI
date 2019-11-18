@@ -15,7 +15,7 @@ def get_prediction(content, project_id, model_id):
   payload = {'image': {'image_bytes': content }}
   params = {}
   request = prediction_client.predict(name, payload, params)
-  return request  # waits till request is returned
+  return request
 app = Flask(__name__)
 @app.route('/',methods = ['POST', 'GET'])
 def index():
@@ -27,8 +27,6 @@ def summit():
     try:
         with open(f.filename, 'rb') as ff:
             content = ff.read()
-            #img_r=Image.open(f.filename)
-            #img=img_r.load()
     except:
         re="You can only upload photo."
     try:
@@ -38,6 +36,4 @@ def summit():
             break
     except:
         re="You can only upload photo."
-
-    #get_prediction(secure_filename(f.filename),project_id,model_id)
     return render_template("summit_web.html",res=re)
