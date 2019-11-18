@@ -1,6 +1,4 @@
 import sys
-import ast
-from tkinter.filedialog import askopenfilename
 from google.cloud import automl_v1beta1
 from google.cloud.automl_v1beta1.proto import service_pb2
 from google.cloud.automl_v1beta1 import PredictionServiceClient
@@ -8,6 +6,7 @@ from PIL import Image, ImageTk
 from werkzeug import secure_filename
 import werkzeug
 import os
+from flask import Flask, redirect, url_for, request ,render_template
 project_id = ""
 model_id = ""
 def get_prediction(content, project_id, model_id):
@@ -17,7 +16,6 @@ def get_prediction(content, project_id, model_id):
   params = {}
   request = prediction_client.predict(name, payload, params)
   return request  # waits till request is returned
-from flask import Flask, redirect, url_for, request ,render_template
 app = Flask(__name__)
 @app.route('/',methods = ['POST', 'GET'])
 def index():
