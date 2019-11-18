@@ -1,5 +1,4 @@
 import sys
-import  tkinter as tk
 import ast
 from tkinter.filedialog import askopenfilename
 from google.cloud import automl_v1beta1
