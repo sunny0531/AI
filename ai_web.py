@@ -8,8 +8,8 @@ from PIL import Image, ImageTk
 from werkzeug import secure_filename
 import werkzeug
 import os
-project_id = "972041640099"
-model_id = "ICN8068115169550532608"
+project_id = ""
+model_id = ""
 def get_prediction(content, project_id, model_id):
   prediction_client = PredictionServiceClient.from_service_account_file("AI_KEY.json")
   name = 'projects/{}/locations/us-central1/models/{}'.format(project_id, model_id)
