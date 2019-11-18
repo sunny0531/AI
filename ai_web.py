@@ -34,4 +34,4 @@ def summit():
             break
     except:
         re="You can only upload photo."
-    return render_template("summit_web.html",res=re.replace("Many_sugar","High sugar"))
+    return render_template("summit_web.html",res=re.replace("many_sugar","High sugar"))

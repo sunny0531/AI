@@ -25,7 +25,7 @@ def chose_file():
     response=get_prediction(content, project_id,  model_id)
     result_l["text"]="no result"
     for result in response.payload:
-        result_l["text"]=result.display_name
+        result_l["text"]=result.display_name.replace("many_sugar","High sugar")
         break
 def get_prediction(content, project_id, model_id):
   prediction_client = PredictionServiceClient.from_service_account_file("")#your json file
